@@ -1,3 +1,5 @@
+using Cord.SDK.Application.Abstractions.Services;
+
 namespace Cord.SDK.Infrastructure.Services;
 
 internal sealed class Cord : ICord
@@ -10,7 +12,8 @@ internal sealed class Cord : ICord
         IOrganizationsContainer organizations,
         IMessagesContainer messages,
         INotificationsContainer notifications,
-        IBatchesContainer batches
+        IBatchesContainer batches,
+        IPresenceContainer presences
     )
     {
         TokenGenerator = tokenGenerator;
@@ -20,6 +23,7 @@ internal sealed class Cord : ICord
         Messages = messages;
         Notifications = notifications;
         Batches = batches;
+        Presences = presences;
     }
 
     public ITokenGenerator TokenGenerator { get; }
@@ -29,4 +33,5 @@ internal sealed class Cord : ICord
     public IMessagesContainer Messages { get; }
     public INotificationsContainer Notifications { get; }
     public IBatchesContainer Batches { get; }
+    public IPresenceContainer Presences { get; }
 }
